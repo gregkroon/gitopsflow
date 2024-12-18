@@ -25,9 +25,7 @@ spec:
         targetRevision: HEAD
         path: "base"
         kustomize:
-          images:
-            - name: munkys123/guestbook
-              newTag: somevalue
+          images: munkys123/guestbook
       destination:
         server: '{{server_address}}'
         namespace: 'guestbook-{{environment}}'
