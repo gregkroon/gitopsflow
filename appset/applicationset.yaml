@@ -17,7 +17,7 @@ spec:
       labels:
         harness.io/envRef: '{{environment}}-'
         harness.io.serviceRef: '{{harness_service}}'
-        harness.io/buildRef: '{{image_tag}}'
+        harness.io/buildRef: somevalue
     spec:
       project: 5b758ebb
       source:
@@ -27,7 +27,7 @@ spec:
         kustomize:
           images:
             - name: munkys123/guestbook
-              newTag: '{{image_tag}}'
+              newTag: somevalue
       destination:
         server: '{{server_address}}'
         namespace: 'guestbook-{{environment}}'
