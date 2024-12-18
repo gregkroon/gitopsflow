@@ -24,10 +24,12 @@ spec:
         repoURL: https://github.com/gregkroon/gitopsflow.git
         targetRevision: HEAD
         path: "base"
-        kustomize:
-          namePrefix: '{{environment}}-'
-          images:
-          - munkys123/guestbook:{{image_tag}}
+        helm:
+          valueFiles:
+            - values.yaml
+          parameters:
+            - name: image.tag
+              value: '{{image_tag}}'
       destination:
         server: '{{server_address}}'
         namespace: 'guestbook-{{environment}}'
