@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1                           
 kind: ApplicationSet
 metadata:
   name: guestbook
@@ -15,7 +15,7 @@ spec:
         notifications.argoproj.io/subscribe.out-of-sync.harness: ""
       name: '{{cluster_name}}-guestbook'
       labels:
-        harness.io/envRef: '{{env}}-'
+        harness.io/envRef: '{{environment}}-'
         harness.io/serviceRef: '{{harness_service}}'
         harness.io/buildRef: '{{image_tag}}'
     spec:
@@ -25,12 +25,12 @@ spec:
         targetRevision: HEAD
         path: "base"
         kustomize:
-          namePrefix: '{{env}}-'
+          namePrefix: '{{environment}}-'
           images:
           - munkys123/guestbook:{{image_tag}}
       destination:
         server: '{{server_address}}'
-        namespace: 'guestbook-{{env}}'
+        namespace: 'guestbook-{{environment}}'
       syncPolicy:
         automated:
           selfHeal: true
