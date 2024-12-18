@@ -16,7 +16,8 @@ spec:
         app: guestbook
     spec:
       containers:
-      - image: munkys123/guestbook:latest
+      - image: munkys123/guestbook:{{ .Values.image.tag }}
         name: guestbook
         ports:
         - containerPort: 3000
+
