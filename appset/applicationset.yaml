@@ -32,9 +32,9 @@ spec:
         server: '{{server_address}}'
         namespace: 'guestbook-{{env}}'
       syncPolicy:
+        automated:
+          selfHeal: true
         syncOptions:
-        - PrunePropagationPolicy=foreground
         - PruneLast=true
         - CreateNamespace=true
         - ApplyOutOfSyncOnly=true
-        - Replace=true
