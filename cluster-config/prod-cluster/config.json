@@ -3,5 +3,5 @@
   "harness_service" : "guestbook",
   "environment" : "prod",
   "server_address" : "https://88144864BA99B1B6187C1640A0FC8505.gr7.ap-southeast-2.eks.amazonaws.com",
-  "image_tag" : "1244-de01d00-44"
+  "image_tag" : "1225-dd1dde5-47"
 }
