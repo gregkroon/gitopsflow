@@ -1,14 +1,14 @@
-apiVersion: argoproj.io/v1alpha1                           
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: guestbook
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/gregkroon/gitopsflow.git
-      revision: HEAD
-      files:
-      - path: "cluster-config/**/config.json"
+    - git:
+        repoURL: https://github.com/gregkroon/gitopsflow.git
+        revision: HEAD
+        files:
+          - path: "cluster-config/**/config.json"
   template:
     metadata:
       annotations:
@@ -16,7 +16,7 @@ spec:
       name: '{{cluster_name}}-guestbook'
       labels:
         harness.io/envRef: '{{environment}}-'
-        harness.io/serviceRef: '{{harness_service}}'
+        harness.io.serviceRef: '{{harness_service}}'
         harness.io.buildRef: '{{image_tag}}'
     spec:
       project: 5b758ebb
@@ -26,8 +26,8 @@ spec:
         path: "base"
         kustomize:
           images:
-          - name: munkys123/guestbook
-            newTag: '{{image_tag}}'
+            - name: munkys123/guestbook
+              newTag: '{{image_tag}}'
       destination:
         server: '{{server_address}}'
         namespace: 'guestbook-{{environment}}'
@@ -35,6 +35,6 @@ spec:
         automated:
           selfHeal: true
         syncOptions:
-        - PruneLast=true
-        - CreateNamespace=true
-        - ApplyOutOfSyncOnly=true
+          - PruneLast=true
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=true
