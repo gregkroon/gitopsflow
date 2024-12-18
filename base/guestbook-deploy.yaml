@@ -16,7 +16,7 @@ spec:
         app: guestbook
     spec:
       containers:
-      - image: mansong/guestbook:latest
+      - image: munkys123/guestbook:latest
         name: guestbook
         ports:
         - containerPort: 3000
