@@ -3,5 +3,5 @@
   "harness_service" : "guestbook",
   "environment" : "dev",
   "server_address" : "https://kubernetes.default.svc",
-  "image_tag" : "1206-e6ff550-21"
+  "image_tag" : "1229-5085ed3-22"
 }
