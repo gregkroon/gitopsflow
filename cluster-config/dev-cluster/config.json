@@ -1,6 +1,6 @@
 {
   "cluster_name" : "dev-cluster",
-  "harness_service" : "GuestBook_UI",
+  "harness_service" : "guestbook",
   "environment" : "dev",
   "server_address" : "https://kubernetes.default.svc",
   "image_tag" : "1205-f76757c-518"
