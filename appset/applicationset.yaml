@@ -5,7 +5,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/gregkroon/gitopsflow/guestbook.git
+      repoURL: https://github.com/gregkroon/gitopsflow.git
       revision: HEAD
       files:
       - path: "cluster-config/**/config.json"
@@ -15,17 +15,17 @@ spec:
         notifications.argoproj.io/subscribe.out-of-sync.harness: ""
       name: '{{cluster_name}}-guestbook'
       labels:
-        harness.io/envRef: '{{environment}}'
+        harness.io/envRef: '{{env}}-'
         harness.io/serviceRef: '{{harness_service}}'
         harness.io/buildRef: '{{image_tag}}'
     spec:
       project: 5b758ebb
       source:
-        repoURL: https://github.com/gregkroon/gitopsflow/guestbook.git
+        repoURL: https://github.com/gregkroon/gitopsflow.git
         targetRevision: HEAD
         path: "base"
         kustomize:
-          namePrefix: '{{environment}}-'
+          namePrefix: '{{env}}-'
           images:
           - munkys123/guestbook:{{image_tag}}
       destination:
