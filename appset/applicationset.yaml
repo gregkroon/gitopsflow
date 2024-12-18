@@ -17,7 +17,7 @@ spec:
       labels:
         harness.io/envRef: '{{environment}}-'
         harness.io.serviceRef: '{{harness_service}}'
-        harness.io.buildRef: '{{image_tag}}'
+        harness.io/buildRef: '{{image_tag}}'
     spec:
       project: 5b758ebb
       source:
