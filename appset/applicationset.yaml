@@ -30,7 +30,7 @@ spec:
           - munkys123/guestbook:{{image_tag}}
       destination:
         server: '{{server_address}}'
-        namespace: 'guestbook-{{environment}}'
+        namespace: 'guestbook-{{env}}'
       syncPolicy:
         syncOptions:
         - PrunePropagationPolicy=foreground
