@@ -19,7 +19,7 @@ spec:
         harness.io/serviceRef: '{{harness_service}}'
         harness.io/buildRef: '{{image_tag}}'
     spec:
-      project: default
+      project: 5b758ebb
       source:
         repoURL: https://github.com/gregkroon/gitopsflow.git
         targetRevision: HEAD
