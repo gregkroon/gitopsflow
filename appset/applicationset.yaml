@@ -15,7 +15,7 @@ spec:
         notifications.argoproj.io/subscribe.out-of-sync.harness: ""
       name: '{{cluster_name}}-guestbook'
       labels:
-        harness.io/envRef: '{{environment}}-'
+        harness.io/envRef: '{{environment}}-test'
         harness.io.serviceRef: '{{harness_service}}'
         harness.io/buildRef: somevalue
     spec:
