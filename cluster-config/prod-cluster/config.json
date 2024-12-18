@@ -1,0 +1,7 @@
+{
+  "cluster_name" : "prod-cluster",
+  "harness_service" : "GuestBook_UI",
+  "environment" : "prod",
+  "server_address" : "https://34.75.37.82",
+  "image_tag" : "1244-f76757c-516"
+}

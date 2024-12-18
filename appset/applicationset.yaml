@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/wings-software/guestbook-delivery.git
+      revision: HEAD
+      files:
+      - path: "cluster-config/**/config.json"
+  template:
+    metadata:
+      annotations:
+        notifications.argoproj.io/subscribe.out-of-sync.harness: ""
+      name: '{{cluster_name}}-guestbook'
+      labels:
+        harness.io/envRef: '{{environment}}'
+        harness.io/serviceRef: '{{harness_service}}'
+        harness.io/buildRef: '{{image_tag}}'
+    spec:
+      project: 207bda4a
+      source:
+        repoURL: https://github.com/wings-software/guestbook-delivery.git
+        targetRevision: HEAD
+        path: "base"
+        kustomize:
+          namePrefix: '{{environment}}-'
+          images:
+          - mansong/guestbook:{{image_tag}}
+      destination:
+        server: '{{server_address}}'
+        namespace: 'guestbook-{{environment}}'
+      syncPolicy:
+        syncOptions:
+        - PrunePropagationPolicy=foreground
+        - PruneLast=true
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
+        - Replace=true
