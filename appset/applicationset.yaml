@@ -16,20 +16,19 @@ spec:
       name: '{{cluster_name}}-guestbook'
       labels:
         harness.io/envRef: '{{environment}}-'
-        harness.io/serviceRef: '{{harness_service}}'
-        harness.io/buildRef: '{{image_tag}}'
+        harness.io.serviceRef: '{{harness_service}}'
+        harness.io.buildRef: '{{image_tag}}'
     spec:
       project: 5b758ebb
       source:
         repoURL: https://github.com/gregkroon/gitopsflow.git
         targetRevision: HEAD
         path: "base"
-        helm:
-          valueFiles:
-            - values.yaml
-          parameters:
-            - name: image.tag
-              value: '{{image_tag}}'
+        kustomize:
+          namePrefix: '{{environment}}-'
+          images:
+          - name: munkys123/guestbook
+            newTag: '{{image_tag}}'
       destination:
         server: '{{server_address}}'
         namespace: 'guestbook-{{environment}}'
