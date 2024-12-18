@@ -16,7 +16,7 @@ spec:
       name: '{{cluster_name}}-guestbook'
       labels:
         harness.io/envRef: '{{environment}}'
-        harness.io.serviceRef: '{{harness_service}}'
+        harness.io/serviceRef: '{{harness_service}}'
         harness.io/buildRef: somevalue
     spec:
       project: 5b758ebb
