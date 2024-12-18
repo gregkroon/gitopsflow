@@ -8,7 +8,7 @@ spec:
         repoURL: https://github.com/gregkroon/gitopsflow.git
         revision: HEAD
         files:
-          - path: "cluster-config/**/config.json"
+          - path: "cluster-config/*/config.json"
   template:
     metadata:
       annotations:
